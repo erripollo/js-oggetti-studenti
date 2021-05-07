@@ -21,7 +21,14 @@ var studente = {
 //Stampare a schermo attraverso un ciclo for-in tutte le proprietà dell'oggetto.
 for (var key in studente) {
     console.log(studente[key]);
+    var el = document.querySelector('.studente');
+    el.insertAdjacentHTML('beforeend', 
+    `
+    <p>${key}: ${studente[key]}</p>
+    `
+    );
 }
+
 
 //Creare un array di oggetti di studenti.
 var studenti = [
@@ -48,6 +55,12 @@ console.log('');
 var i = 0;
 while (i < studenti.length) {
     console.log(studenti[i].nome, studenti[i].cognome);
+    var elencoEl = document.querySelector('.elenco > ul');
+    elencoEl.insertAdjacentHTML('beforeend', 
+    `
+    <li>${studenti[i].nome} ${studenti[i].cognome}</li>
+    `
+    );
 
     i++
 }
@@ -55,21 +68,32 @@ while (i < studenti.length) {
 //Dare la possibilità all’utente, attraverso 3 prompt(), di aggiungere un nuovo oggetto studente inserendo nell’ordine: nome, cognome e età. 
 console.log('');
 
-/* var nuovoStudente = {
+var nuovoStudente = {
     nome: '',
     cognome: '',
     età: 0    
 }
 
-for (var key in nuovoStudente) {
-    var datoStudente = prompt('Insrisci ' + key + ' studente').toLocaleLowerCase()
-    nuovoStudente[key] = datoStudente
-}
+setTimeout(function(){
+    for (var key in nuovoStudente) {
+        var datoStudente = prompt('Insrisci ' + key + ' studente').toLocaleLowerCase()
+        nuovoStudente[key] = datoStudente
 
-console.log(nuovoStudente); */
+        var nuovoStudenteEl = document.querySelector('.nuovo_studente');
+        nuovoStudenteEl.insertAdjacentHTML('beforeend', 
+        `
+        <p>${key}: ${nuovoStudente[key]}</p>
+        `
+        );
+
+    }
+    console.log(nuovoStudente);
+    
+}, 3000);
 
 
-var nuovoStudente = {};
+
+/* var nuovoStudente = {};
 
 var nomeStudente = prompt('Inserisci nome studente').toLocaleLowerCase();
 var cognomeStudente = prompt('Inserisci cognome studente').toLocaleLowerCase();
@@ -79,6 +103,6 @@ nuovoStudente.nome = nomeStudente;
 nuovoStudente.cognome = cognomeStudente;
 nuovoStudente.età = etàStudente;
 
-console.log(nuovoStudente);
+console.log(nuovoStudente); */
 
 
